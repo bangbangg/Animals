@@ -1,4 +1,4 @@
-import {LOGIN_INFO} from "./types"
+import { LOGIN_INFO} from "./types"
 
 export function auth(login,password) {
   return {
@@ -7,5 +7,7 @@ export function auth(login,password) {
     password: password,
   }
 }
+
+
 
 
