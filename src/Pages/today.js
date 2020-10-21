@@ -1,16 +1,9 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import styled from 'styled-components';
+import {useHistory} from "react-router-dom"
 
 
-const Wrapper = styled.section`
-  max-width: 100%;
-  margin: auto;
-  display: grid;
-  grid-gap: 1em;
-  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  grid-auto-rows: 400px;
-`;
+
 export const Today = () => {
 
   
@@ -21,21 +14,27 @@ export const Today = () => {
   today.sort((a,b) => a.time > b.time? 1 : -1)
   console.log(today);
 
+  const history = useHistory();
+
   return (
-    <div>
-    <Wrapper>
+    <div className = "today_container">
+    <div className="list-group">
       {today.map((animal) => {
         return (
-        <div>
-          <p>{animal.nickname}</p>
-          <p>{animal.appointment}</p>
-          <p>{animal.medicine}</p>
-          <p>{animal.time}</p>
-        </div>
+            <div className="list-group-item list-group-item-action active margin" key = {animal.id}>
+            <div className="d-flex w-100 justify-content-between">
+            <h5 className="mb-1" onClick = {()=>history.push(`/animalInfo${animal.id}`)}>Кличка животного : {animal.nickname}</h5>
+            <small>Прием : {animal.time}</small>
+            </div>
+            <p className="mb-1"> Назначение : {animal.appointment}</p>
+            <small>Лекарство : {animal.medicine}</small>
+            </div>    
         )
        })
       }
-    </Wrapper> 
+    </div>
     </div>
   )
 }
+
+

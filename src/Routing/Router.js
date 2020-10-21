@@ -7,6 +7,7 @@ import {Login} from "../Pages/login";
 import {Today} from "../Pages/today";
 import {Navibar} from "../Helpers/Navbar";
 import {NavibarLog} from "../Helpers/NavbarLogined";
+import {AnimalInfo} from "../Pages/AnimalInfo"
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -28,8 +29,8 @@ export const router = (isAuthorized) => {
         <Navibar/>
         <GlobalStyle/>
         <Switch>
-          <Route path="/" exact component = {Login} />
-          <Redirect to="/" />
+          <Route path="/Home" exact component = {Login} />
+          <Redirect to="/Home" />
         </Switch>
       </Router>
     )
@@ -39,9 +40,10 @@ export const router = (isAuthorized) => {
       <NavibarLog/>
       <GlobalStyle/>
       <Switch>
-        <Route path="/" exact component = {Today} />
+        <Route path="/Home" exact component = {Today} />
         <Route path="/animals" component = {Animals} />
-        <Redirect to="/" />
+        <Route path = "/animalinfo:id" component={AnimalInfo}/>
+        <Redirect to="/Home" />
       </Switch>
       </Router>
     )

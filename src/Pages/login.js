@@ -5,7 +5,11 @@ import {auth} from "../Actions/Actions";
 
 
 
+
+
 export const Login = () => {
+
+
 
   const valid_user = [{login:"foo", password:"fooo"},{login:'Admin', password:'Qwerty!123'}]
 
@@ -20,18 +24,15 @@ export const Login = () => {
 
   const log = useSelector(state=>state.login);
   const pass = useSelector(state=>state.password);
- 
+  const alert = useSelector(state=>state.alert);
+
   let result = valid_user.find(user=> (user.login === log && user.password === pass))
-       result ? localStorage.setItem("authorize" , JSON.stringify ('true')) :
-      localStorage.setItem("authorize" , JSON.stringify ('false')) ; 
-      
-    
+       if (result) {
+         localStorage.setItem("authorize" , JSON.stringify ('true')); 
+       }
+       
   
   
-
-  
-
-
   return (
     <div className = "login_container">
     <form>
@@ -43,7 +44,9 @@ export const Login = () => {
         <label>Password</label>
         <input type="text" className="form-control" onChange = {onPassword}/>
       </div>    
-      <button type="submit" className="btn btn-primary" onClick={()=>dispatch(auth(login,password))}>Submit</button>
+      <button  className="btn btn-primary" onClick={ev=>{
+        dispatch(auth(login,password));
+        }}>Submit</button>
     </form>  
     </div>  
   )
