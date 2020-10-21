@@ -1,5 +1,5 @@
 
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTHORIZE,LOGOUT} from "./types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT} from "./types"
 
 export function auth(login,password) {
   return {
@@ -18,7 +18,7 @@ export function showAlert() {
 
    setTimeout(()=> {
      dispatch(hideAlert())
-   },2000)
+   },400)
  }
 }
 
@@ -28,18 +28,6 @@ export function hideAlert() {
   }
 }
 
-export function authorization() {
-  return {
-    type: AUTHORIZE,
-  }
-}
-
-
-export function logout() {
-  return {
-    type: LOGOUT,
-  }
-}
 
 
 

@@ -14,7 +14,7 @@ export const Animals = () => {
         return (
             <div className="list-group-item list-group-item-action active margin" key = {animal.id}>
             <div className="d-flex w-100 justify-content-between">
-            <h5 className="mb-1" onClick = {()=>history.push(`/animalInfo${animal.id}`)}> Кличка животного : {animal.nickname}</h5>
+            <h5 className="mb-1" onClick = {()=>history.push(`/animalInfo${animal.id}`)}> Кличка животного : {animal.nickname} <button className = "btn btn-primary">*</button></h5>
             <small>Возраст нашего питомца:{animal.age}</small>
             </div>
             <p className="mb-1"> Тип животного : {animal.type}</p>

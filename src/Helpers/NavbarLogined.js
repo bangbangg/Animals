@@ -2,6 +2,9 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 
 
+
+
+
 export const NavibarLog = () => {
 
   const history = useHistory();
@@ -15,7 +18,7 @@ export const NavibarLog = () => {
   }
 
   function LogOut() {
-    localStorage.setItem("authorize" , JSON.stringify ('false'))
+    localStorage.setItem("authorize" , JSON.stringify ('false'));
   }
 
   return (
@@ -23,7 +26,9 @@ export const NavibarLog = () => {
       <form className="form-inline">
         <ul className="nav nav-pills">
         <li className="nav-item">
-          <button className="btn btn-primary" href="#" onClick = {LogOut}>LogOut</button>
+          <button className="btn btn-primary" onClick = {
+            ()=>LogOut()
+          }>LogOut</button>
         </li>
         <li className="nav-item">
            <button className="btn btn-primary" onClick = {Today_Link}>Today</button>

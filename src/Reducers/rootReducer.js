@@ -1,4 +1,4 @@
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTHORIZE,LOGOUT} from "../Actions/types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT} from "../Actions/types"
 
 const initialState = {
   animals: [
@@ -11,17 +11,17 @@ const initialState = {
     {id:"4",type:"dog", breed:"dog", nickname:"Dipsy", appointment: "lorem",medicine:"candy",
     date:"2020-10-21", time:"14:45", height:"10cm" , weight:"15kg" , age: "4 y.o"},
     {id:"5",type:"cat", breed:"no-breed", nickname:"Tinker", appointment: "i dont know",medicine:"tablet",
-    date:"2020-10-23", time:"13:55", height:"40cm" , weight:"10kg" , age: "12 y.o"},
+    date:"2020-10-22", time:"13:55", height:"40cm" , weight:"10kg" , age: "12 y.o"},
     {id:"6",type:"dog", breed:"dachshund", nickname:"Мinky", appointment: "who are u",medicine:"varenie",
     date:"2020-10-22", time:"12:10", height:"60cm" , weight:"25kg" , age: "3 y.o"},
   ],
   login: "",
   password: "",
   alert: null,
-  isAuthorized: "false",
 }
 
 export const rootReducer = (state=initialState, action) => {
+
   switch(action.type) {
     case LOGIN_INFO:
       return {...state, login: action.login, password: action.password}
@@ -29,10 +29,6 @@ export const rootReducer = (state=initialState, action) => {
       return {...state, alert : true}
     case HIDE_ALERT:
       return {...state, alert: null}
-    case AUTHORIZE:
-      return {...state,isAuthorized: "true"}
-    case LOGOUT: 
-      return {...state,isAuthorized:"false"}
     default:
       return state
   }
