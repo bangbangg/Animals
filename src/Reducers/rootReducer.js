@@ -26,7 +26,7 @@ export const rootReducer = (state=initialState, action) => {
     case LOGIN_INFO:
       return {...state, login: action.login, password: action.password}
     case SHOW_ALERT:
-      return {...state, alert : true}
+      return {...state, alert : "true"}
     case HIDE_ALERT:
       return {...state, alert: null}
     default:

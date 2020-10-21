@@ -25,18 +25,18 @@ export const Login = () => {
 
   const log = useSelector(state=>state.login);
   const pass = useSelector(state=>state.password);
-
+  const alert = useSelector(state=>state.alert)
 
   let result = valid_user.find(user=> (user.login === log && user.password === pass))
        if (result) {
          localStorage.setItem("authorize" , JSON.stringify ('true')); 
        }
-       
-  
+
+
   return (
     <div className = "login_container">
-    {log && pass && !result && <Alert/>}
-    <form>
+    {alert &&  <Alert/>}
+    <form >
       <div className="form-group">
         <label>Login</label>
         <input type="text" className="form-control" onChange = {onLogin}/>
@@ -45,11 +45,11 @@ export const Login = () => {
         <label>Password</label>
         <input type="text" className="form-control" onChange = {onPassword}/>
       </div>    
-      <button  className="btn btn-primary" onClick={ev=>
-        ev.preventDefault(),
-        ()=>dispatch(showAlert()),
+      <button  className="btn btn-primary"  onClick={ev => 
+        ev.preventDefault(),         
+        ()=>dispatch(showAlert()), 
         ()=>dispatch(auth(login,password))
-        }>Submit</button>
+        }>Confirm</button>
     </form>  
     </div>  
   )
