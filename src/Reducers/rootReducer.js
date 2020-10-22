@@ -18,7 +18,7 @@ const initialState = {
   login: "",
   password: "",
   alert: null,
-  isaut:"false"
+  isaut:false
 }
 
 export const rootReducer = (state=initialState, action) => {
@@ -27,16 +27,16 @@ export const rootReducer = (state=initialState, action) => {
     case LOGIN_INFO:
       return {...state, login: action.login, password: action.password}
     case SHOW_ALERT:
-      return {...state, alert : "true"}
+      return {...state, alert : true}
     case HIDE_ALERT:
       return {...state, alert: null}
     case AUTH:
       if (state.login=== "Admin" && state.password === "Qwerty!123" ) {//поскольку мы имитируем авторизацию - упростил так. для имитации большего количества логинов паролей можно было бы задать массив логинов/паролей в стейте с возможностью его расширения и соответственно задать условие перебора для проверки соответствия пары логин/пароль
-        localStorage.setItem("authorize" , JSON.stringify ('true'));
-        return {...state, isaut:"true"}}
+        localStorage.setItem("authorize" , JSON.stringify (true));
+        return {...state, isaut:true}}
     case LOGOUT:
-      localStorage.setItem("authorize" , JSON.stringify ('false'));
-      return {...state,isaut:"false"}
+      localStorage.setItem("authorize" , JSON.stringify (false));
+      return {...state,isaut:false}
     default:
       return state
   }

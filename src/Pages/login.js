@@ -1,7 +1,7 @@
 import React, {useState,useCallback} from 'react'
 import {useDispatch,useSelector} from 'react-redux';
 
-import {auth,showAlert, loginn} from "../Actions/Actions";
+import {auth,showAlert, loginUser} from "../Actions/Actions";
 import {Alert} from "../Helpers/Alert"
 
 
@@ -24,8 +24,8 @@ export const Login = () => {
 
 
   function Log() {
-    if (authed === "true") {
-      localStorage.setItem("authorize" , JSON.stringify ('true')); 
+    if (authed === true) {
+      localStorage.setItem("authorize" , JSON.stringify (true)); 
     }
   }
 
@@ -45,7 +45,7 @@ export const Login = () => {
         {ev.preventDefault()
         dispatch(showAlert())
         dispatch(auth(login,password))
-        dispatch(loginn())
+        dispatch(loginUser())
         Log()
         }   
         }>Confirm</button>

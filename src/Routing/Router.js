@@ -23,7 +23,7 @@ body {
 
 export const router = (isAuthorized) => {
  
-  if (isAuthorized === "false" || !isAuthorized) {
+  if (!isAuthorized) {
     return (
         <Router>
         <Navibar/>

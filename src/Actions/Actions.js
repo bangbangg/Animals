@@ -28,14 +28,14 @@ export function hideAlert() {
   }
 }
 
-export function loginn() {
+export function loginUser() {
   return{
     type:AUTH,
   }
 }
 
 
-export function logout() {
+export function logOut() {
   return {
     type:LOGOUT,
   }

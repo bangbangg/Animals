@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
-import {logout} from "../Actions/Actions"
+import {logOut} from "../Actions/Actions"
 
 
 export const NavibarLog = () => {
@@ -26,7 +26,7 @@ export const NavibarLog = () => {
         <li className="nav-item">
           <button className="btn btn-primary" onClick = {ev=> {
              ev.preventDefault()
-             dispatch(logout())
+             dispatch(logOut())
            }}>LogOut</button>
         </li>
         <li className="nav-item">
