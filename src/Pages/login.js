@@ -11,10 +11,6 @@ import {Alert} from "../Helpers/Alert"
 
 export const Login = () => {
 
-
-
-  const valid_user = [{login:'Admin', password:'Qwerty!123'}]
-
   const dispatch = useDispatch();
 
   const [login, setLogin] = useState("");
@@ -22,16 +18,16 @@ export const Login = () => {
   const onPassword = useCallback(ev=>setPassword(ev.target.value),[])
   const onLogin = useCallback(ev=>setLogin(ev.target.value),[])
 
-
-  const log = useSelector(state=>state.login);
-  const pass = useSelector(state=>state.password);
   const alert = useSelector(state=>state.alert)
+  const authed = useSelector(state=>state.isaut)
+  
 
-  let result = valid_user.find(user=> (user.login === log && user.password === pass))
-       if (result) {
-         localStorage.setItem("authorize" , JSON.stringify ('true')); 
-       }
 
+  function Log() {
+    if (authed === "true") {
+      localStorage.setItem("authorize" , JSON.stringify ('true')); 
+    }
+  }
 
   return (
     <div className = "login_container">
@@ -50,6 +46,7 @@ export const Login = () => {
         dispatch(showAlert())
         dispatch(auth(login,password))
         dispatch(loginn())
+        Log()
         }   
         }>Confirm</button>
     </form>  

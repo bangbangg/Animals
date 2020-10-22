@@ -1,4 +1,4 @@
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH} from "../Actions/types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH, LOGOUT} from "../Actions/types"
 
 const initialState = {
   animals: [
@@ -31,8 +31,12 @@ export const rootReducer = (state=initialState, action) => {
     case HIDE_ALERT:
       return {...state, alert: null}
     case AUTH:
-      if (state.login=== "Admin" && state.password === "Qwerty!123" ) //поскольку мы имитируем авторизацию - упростил так. для имитации большего количества логинов паролей можно было бы задать массив логинов/паролей в стейте с возможностью его расширения и соответственно задать условие перебора для проверки соответствия пары логин/пароль
-      return {...state, isaut:"true"}
+      if (state.login=== "Admin" && state.password === "Qwerty!123" ) {//поскольку мы имитируем авторизацию - упростил так. для имитации большего количества логинов паролей можно было бы задать массив логинов/паролей в стейте с возможностью его расширения и соответственно задать условие перебора для проверки соответствия пары логин/пароль
+        localStorage.setItem("authorize" , JSON.stringify ('true'));
+        return {...state, isaut:"true"}}
+    case LOGOUT:
+      localStorage.setItem("authorize" , JSON.stringify ('false'));
+      return {...state,isaut:"false"}
     default:
       return state
   }

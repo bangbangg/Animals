@@ -1,12 +1,13 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
+import {useDispatch} from 'react-redux';
 
-
-
+import {logout} from "../Actions/Actions"
 
 
 export const NavibarLog = () => {
 
+  const dispatch = useDispatch();
   const history = useHistory();
 
   function Today_Link() {
@@ -17,24 +18,28 @@ export const NavibarLog = () => {
     history.push("/animals");
   }
 
-  function LogOut() {
-    localStorage.setItem("authorize" , JSON.stringify ('false'));
-  }
 
   return (
     <nav className="navbar navbar-light bg-light">
       <form className="form-inline">
         <ul className="nav nav-pills">
         <li className="nav-item">
-          <button className="btn btn-primary" onClick = {
-            ()=>LogOut()
-          }>LogOut</button>
+          <button className="btn btn-primary" onClick = {ev=> {
+             ev.preventDefault()
+             dispatch(logout())
+           }}>LogOut</button>
         </li>
         <li className="nav-item">
-           <button className="btn btn-primary" onClick = {Today_Link}>Today</button>
+           <button className="btn btn-primary" onClick = {ev=> {
+             ev.preventDefault()
+             Today_Link()
+           }}>Today</button>
         </li>
         <li className="nav-item">
-          <button className="btn btn-primary" onClick = {Animals_Link}>Animals</button>
+          <button className="btn btn-primary" onClick ={ev=> {
+             ev.preventDefault()
+             Animals_Link()
+           }}>Animals</button>
         </li>
       </ul>
       </form>

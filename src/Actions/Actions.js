@@ -1,5 +1,5 @@
 
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH} from "./types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH, LOGOUT} from "./types"
 
 export function auth(login,password) {
   return {
@@ -34,6 +34,12 @@ export function loginn() {
   }
 }
 
+
+export function logout() {
+  return {
+    type:LOGOUT,
+  }
+}
 
 
 
