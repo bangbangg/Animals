@@ -1,7 +1,7 @@
 import React, {useState,useCallback} from 'react'
 import {useDispatch,useSelector} from 'react-redux';
 
-import {auth,showAlert} from "../Actions/Actions";
+import {auth,showAlert, loginn} from "../Actions/Actions";
 import {Alert} from "../Helpers/Alert"
 
 
@@ -13,7 +13,7 @@ export const Login = () => {
 
 
 
-  const valid_user = [{login:"foo", password:"fooo"},{login:'Admin', password:'Qwerty!123'}]
+  const valid_user = [{login:'Admin', password:'Qwerty!123'}]
 
   const dispatch = useDispatch();
 
@@ -45,10 +45,12 @@ export const Login = () => {
         <label>Password</label>
         <input type="text" className="form-control" onChange = {onPassword}/>
       </div>    
-      <button  className="btn btn-primary"  onClick={ev => 
-        ev.preventDefault(),         
-        ()=>dispatch(showAlert()), 
-        ()=>dispatch(auth(login,password))
+      <button  className="btn btn-primary"  onClick={ev=>
+        {ev.preventDefault()
+        dispatch(showAlert())
+        dispatch(auth(login,password))
+        dispatch(loginn())
+        }   
         }>Confirm</button>
     </form>  
     </div>  

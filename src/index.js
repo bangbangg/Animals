@@ -10,12 +10,14 @@ import * as serviceWorker from './serviceWorker';
 import "./Styles/style.css"
 
 
-const store = createStore(rootReducer , compose(  applyMiddleware (
+
+const store = createStore(rootReducer ,  compose(  applyMiddleware (
   thunk
 ),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
   
+
 const app = (
 <Provider store = {store}>
   <App/>

@@ -1,5 +1,5 @@
 
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT} from "./types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH} from "./types"
 
 export function auth(login,password) {
   return {
@@ -18,13 +18,19 @@ export function showAlert() {
 
    setTimeout(()=> {
      dispatch(hideAlert())
-   },400)
+   },2000)
  }
 }
 
 export function hideAlert() {
   return{
     type:HIDE_ALERT,
+  }
+}
+
+export function loginn() {
+  return{
+    type:AUTH,
   }
 }
 

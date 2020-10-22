@@ -1,4 +1,4 @@
-import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT} from "../Actions/types"
+import {LOGIN_INFO,HIDE_ALERT,SHOW_ALERT,AUTH} from "../Actions/types"
 
 const initialState = {
   animals: [
@@ -18,6 +18,7 @@ const initialState = {
   login: "",
   password: "",
   alert: null,
+  isaut:"false"
 }
 
 export const rootReducer = (state=initialState, action) => {
@@ -29,6 +30,9 @@ export const rootReducer = (state=initialState, action) => {
       return {...state, alert : "true"}
     case HIDE_ALERT:
       return {...state, alert: null}
+    case AUTH:
+      if (state.login=== "Admin" && state.password === "Qwerty!123" ) 
+      return {...state, isaut:"true"}
     default:
       return state
   }
