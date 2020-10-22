@@ -31,7 +31,7 @@ export const rootReducer = (state=initialState, action) => {
     case HIDE_ALERT:
       return {...state, alert: null}
     case AUTH:
-      if (state.login=== "Admin" && state.password === "Qwerty!123" ) 
+      if (state.login=== "Admin" && state.password === "Qwerty!123" ) //поскольку мы имитируем авторизацию - упростил так. для имитации большего количества логинов паролей можно было бы задать массив логинов/паролей в стейте с возможностью его расширения и соответственно задать условие перебора для проверки соответствия пары логин/пароль
       return {...state, isaut:"true"}
     default:
       return state
