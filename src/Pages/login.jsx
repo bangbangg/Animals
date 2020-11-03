@@ -23,29 +23,31 @@ export const Login = () => {
   }
 
   return (
-    <div className = "login_container">
-      {alert && <Alert />}
-      <form >
-        <div className="form-group">
-          <label>Login</label>
-          <input type="text" className="form-control" onChange={onLogin} />
-        </div>
-        <div className="form-group">
-          <label>Password</label>
-          <input type="text" className="form-control" onChange={onPassword} />
-        </div>
-        <button className="btn btn-primary" onClick={(ev) =>
-        { 
-          ev.preventDefault();
-          dispatch(showAlert());
-          dispatch(auth(login, password));
-          dispatch(loginUser());
-          Log();
-        }}
-        >
-          Confirm
-        </button>
-      </form>
+    <div className = "back">
+      <div className = "login_container">
+        {alert && <Alert />}
+          <form >
+            <div className="form-group">
+              <label>Login</label>
+              <input type="text" className="form-control" onChange={onLogin} />
+            </div>
+            <div className="form-group">
+              <label>Password</label>
+              <input type="text" className="form-control" onChange={onPassword} />
+            </div>
+            <button className="btn btn-primary" onClick={(ev) =>
+            { 
+              ev.preventDefault();
+              dispatch(showAlert());
+              dispatch(auth(login, password));
+              dispatch(loginUser());
+              Log();
+            }}
+            >
+              Confirm
+            </button>
+          </form>
+      </div>
     </div>
   );
 };

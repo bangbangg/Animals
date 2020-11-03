@@ -3,11 +3,11 @@ import { LOGIN_INFO, HIDE_ALERT, SHOW_ALERT, AUTH, LOGOUT } from '../Actions/typ
 const initialState = {
   animals: [
     { id: '1', type: 'cat', breed: 'siamese', nickname: 'Tinky', appointment: 'injection', medicine: 'tablet',
-      date: '2020-10-23', time: '18:45', height: '25cm', weight: '15kg', age: '7 y.o' },
+      date: new Date().toJSON().slice(0, 10), time: '18:45', height: '25cm', weight: '15kg', age: '7 y.o' },
     { id: '2', type: 'dog', breed: 'pitbull', nickname: 'Billy', appointment: 'operation', medicine: 'paracetomol',
-      date: '2020-10-23', time: '16:50', height: '15cm', weight: '15kg', age: '1 y.o' },
+      date: new Date().toJSON().slice(0, 10), time: '16:50', height: '15cm', weight: '15kg', age: '1 y.o' },
     { id: '3', type: 'cat', breed: 'paddle-eared', nickname: 'Poppy', appointment: 'nothing', medicine: 'icecream',
-      date: '2020-10-24', time: '12:15', height: '35cm', weight: '5kg', age: '5 y.o' },
+      date: new Date().toJSON().slice(0, 10), time: '12:15', height: '35cm', weight: '5kg', age: '5 y.o' },
     { id: '4', type: 'dog', breed: 'dog', nickname: 'Dipsy', appointment: 'lorem', medicine:'candy',
       date: '2020-10-23', time: '14:45', height: '10cm', weight: '15kg', age: '4 y.o' },
     { id: '5', type: 'cat', breed: 'no-breed', nickname: 'Tinker', appointment: 'i dont know', medicine: 'tablet',
