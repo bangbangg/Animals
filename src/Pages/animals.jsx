@@ -9,14 +9,14 @@ export const Animals = () => {
 
   return (
     <div className="today_container">
+      <h1 className = "heading">Наши питомцы</h1>
       <div className="list-group">
         {animals.map((animal) => {
           return (
             <div className="list-group-item list-group-item-action active margin" key={animal.id}>
               <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1" onClick={() => history.push(`/animalInfo${animal.id}`)}>
+                <h5 className="mb-1">
                   Кличка животного : {animal.nickname}
-                  <button className="btn btn-primary">*</button>
                 </h5>
                 <small>Возраст нашего питомца:{animal.age}</small>
               </div>
@@ -26,7 +26,16 @@ export const Animals = () => {
               <small>
                 Порода : {animal.breed}
               </small>
-            </div>   
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  onClick={() => history.push(`/animalInfo${animal.id}`)}
+                >
+                  Инфо
+                </button>
+              </div>
+            </div>
           );
         })}
       </div>

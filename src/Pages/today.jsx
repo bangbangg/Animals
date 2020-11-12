@@ -18,11 +18,10 @@ export const Today = () => {
           return (
             <div className="list-group-item list-group-item-action active margin" key={animal.id}>
               <div className="d-flex w-100 justify-content-between">
-                <h5 className="mb-1" onClick={() => history.push(`/animalInfo${animal.id}`)}>
+                <h5 className="mb-1">
                   Кличка животного : {animal.nickname}
-                  <button className="btn btn-primary">*</button>
                 </h5>
-                <small>
+                <small className="animal_time">
                   Прием : {animal.time}
                 </small>
               </div>
@@ -30,6 +29,15 @@ export const Today = () => {
               <small>
                 Лекарство : {animal.medicine}
               </small>
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  onClick={() => history.push(`/animalInfo${animal.id}`)}
+                >
+                  Инфо
+                </button>
+              </div>
             </div>
           );
         })}

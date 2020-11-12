@@ -18,7 +18,7 @@ export const Navibar = () => {
       <form className="form-inline">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <button className="btn btn-primary" href="#">Login</button>
+            <button className="btn btn-outline-success my-2 my-sm-0" href="#">Login</button>
           </li>
           <li className="nav-item">
             <button className="btn btn-primary" onClick={todayLink}>Today</button>

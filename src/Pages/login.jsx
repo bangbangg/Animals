@@ -15,10 +15,10 @@ export const Login = () => {
 
   const alert = useSelector((state) => state.alert);
   const authed = useSelector((state) => state.isaut);
-  
+
   function Log() {
     if (authed === true) {
-      localStorage.setItem('authorize', JSON.stringify(true)); 
+      localStorage.setItem('authorize', JSON.stringify(true));
     }
   }
 
@@ -29,14 +29,25 @@ export const Login = () => {
           <form >
             <div className="form-group">
               <label>Login</label>
-              <input type="text" className="form-control" onChange={onLogin} />
+              <input
+                type="text"
+                className="form-control"
+                onChange={onLogin}
+                placeholder="Введите свой логин"
+              />
             </div>
             <div className="form-group">
               <label>Password</label>
-              <input type="text" className="form-control" onChange={onPassword} />
+              <input
+                type="text"
+                className="form-control"
+                onChange={onPassword}
+                placeholder="введите свой пароль"
+                type="password"
+              />
             </div>
             <button className="btn btn-primary" onClick={(ev) =>
-            { 
+            {
               ev.preventDefault();
               dispatch(showAlert());
               dispatch(auth(login, password));

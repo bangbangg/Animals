@@ -5,9 +5,17 @@
   height: $hght;
   margin: $mrgn;
 }
+$font : 'Amatic SC', cursive;
 
 .today_container {
   @include WdHgM (800px,100%,50px auto);
+  display: flex;
+  flex-direction: column;
+
+  .heading {
+    font-family: $font;
+    margin: 10px auto;
+  }
 }
 
 .margin {
@@ -18,6 +26,10 @@
 .card_width {
   width: 600px !important;
   margin: 0 auto;
+}
+
+.animal_time {
+  font-size: 15px;
 }
 
 .size {

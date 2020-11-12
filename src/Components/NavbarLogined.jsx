@@ -22,10 +22,11 @@ export const NavibarLog = () => {
       <form className="form-inline">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <button className="btn btn-primary"
+            <button className="btn btn-outline-success my-2 my-sm-0"
               onClick={ev => {
                 ev.preventDefault();
                 dispatch(logOut());
+                localStorage.removeItem('state');
               }}
             >
               LogOut

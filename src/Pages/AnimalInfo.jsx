@@ -13,16 +13,16 @@ export const AnimalInfo = () => {
 
   let id = useParams();
   const currentAnimal = animals.find((animal) => animal.id === id.id);
- 
+
   return (
     <div className="card card_width" >
-      <img src="https://wikipet.ru/wp-content/uploads/2018/10/1539241377_1-1280x720.jpg" className="card-img-top" alt="..." />
+      <img src={currentAnimal.img} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">
           {currentAnimal.nickname}
         </h5>
         <p className="card-text">
-          Он весит : {currentAnimal.height}, его рост : {currentAnimal.height}
+          Он весит : {currentAnimal.weight}, его рост : {currentAnimal.height}
         </p>
       </div>
       <ul className="list-group list-group-flush">
